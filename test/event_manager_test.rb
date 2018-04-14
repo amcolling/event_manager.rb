@@ -3,15 +3,29 @@ require 'minitest/pride'
 require './lib/event_manager'
 require 'pry'
 
+# load event_attendees.csv
 class EventManagerTest < Minitest::Test
   def test_it_exists
     em = EventManager.new("./data/full_event_attendees.csv")
     assert_instance_of EventManager, em
   end
 
+  # queue count should return 0
   def test_queue_count
     em = EventManager.new(0)
     assert_equal 0, em.queue_count
+  end
+
+  def test_first_name
+    em = EventManager.new("John")
+    lines = File.readlines "event_attendees.csv"
+    assert_equal lines,  em.first_name(name)
+  end
+
+  def test_find_first_name
+    em = EventManager.new("John")
+    lines = File.readlines "event_attendees.csv"
+    assert_equal lines, em.find_first_name
   end
 
 end
@@ -58,9 +72,6 @@ end
 
 # A. Happy Path
 #
-# load event_attendees.csv
-# queue count should return 0
-# find first_name John
 # queue count should return 63
 # queue clear
 # queue count should return 0
