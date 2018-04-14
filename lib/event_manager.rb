@@ -1,14 +1,19 @@
 require 'pry'
 require "csv"
+require "thread"
+
+queue = Queue.new
 
 class EventManager
   contents = File.read "event_attendees.csv"
   attr_reader :queue_count,
-              :name
+              :name,
+              :queue
 
   def initialize(count)
     @queue_count = 0
     @name = name
+    @queue = []
   end
 
   def reads_file_line_by_line
@@ -43,7 +48,7 @@ class EventManager
     end
   end
 
-  
+
 
 
 

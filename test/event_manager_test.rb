@@ -11,6 +11,11 @@ class EventManagerTest < Minitest::Test
   end
 
   # queue count should return 0
+  def test_queue
+    em = EventManager.new([])
+    assert_equal [], em.queue
+  end
+
   def test_queue_count
     em = EventManager.new(0)
     assert_equal 0, em.queue_count
