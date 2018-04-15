@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/event_manager'
 require 'pry'
+require './lib/queue'
 
 # load event_attendees.csv
 class EventManagerTest < Minitest::Test

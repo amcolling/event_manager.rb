@@ -1,11 +1,11 @@
 require 'pry'
 require "csv"
-require "thread"
 
-queue = Queue.new
+
+
 
 class EventManager
-  contents = File.read "event_attendees.csv"
+
   attr_reader :queue_count,
               :name,
               :queue
@@ -40,11 +40,12 @@ class EventManager
     end
   end
 
-  def find_first_name
-    # binding.pry
+  def find_first_name("John")
+    binding.pry
     lines = File.readlines "event_attendees.csv"
     lines.each do |line|
       lines.find {|row| row['name'] == 'John'}
+      @queue << line
     end
   end
 
