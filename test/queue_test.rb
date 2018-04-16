@@ -31,21 +31,7 @@ class QueueTest < Minitest::Test
   def test_count_to_zero
     q = Queue.new
     assert_equal 0, q.count_to_zero
-  end 
-  #
-  #
-  # def test_pop
-  #   q = Queue.new
-  #   assert_equal [], q.pop
-  # end
-  #
-  # def test_push
-  #   q = Queue.new
-  #   assert_equal [], q.push
-  # end
-  #
-  # def test_size
-  #   q = queue.new
-  #   assert_equal [], q.size
-  # end
+  end
+
+
 end
