@@ -40,14 +40,7 @@ class EventManager
     end
   end
 
-  def find_first_name("John")
-    binding.pry
-    lines = File.readlines "event_attendees.csv"
-    lines.each do |line|
-      lines.find {|row| row['name'] == 'John'}
-      @queue << line
-    end
-  end
+  
 
 
 
