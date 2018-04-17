@@ -36,11 +36,14 @@ class EventManager
     lines.each do |line|
       columns = line.split (",")
       name = columns[2]
-      # p name
+    # p name
     end
   end
 
-  
+puts csv.find {|row| row['NAME'] == 'Tom'}
+
+
+
 
 
 

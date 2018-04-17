@@ -2,43 +2,50 @@ require 'pry'
 require 'csv'
 
 class Query
-attr_reader :count,
-            :lines
-attr_accessor :queue
+  attr_reader :attendees
 
   def initialize
-    @count = 0
-    @lines = File.readlines "event_attendees.csv"
-    @queue = []
+    @attendees = []
   end
 
-  # load
-  def queue_load
+
+  contents = CSV.open "event_attendees.csv"
+  binding.pry
+
+  def convert_string_to_array
     lines = File.readlines "event_attendees.csv"
-  end
-
-  # queue count should return 0
-  def count_zero
-    @count
-  end
-
-  # find first_name John
-  def find_name
-    lines = File.readlines "event_attendees.csv"
-      lines.each do |line|
-        lines.find { |row| row['John'] == 'John'}
-        @queue << line[1]
-      end
+    lines.each do |line|
+      columns = line.split (",")
+      # p columns
     end
+  end
 
-    def find_name
+  def convert_header
     contents = CSV.open "event_attendees.csv", headers: true, header_converters: :symbol
     contents.each do |row|
       name = row[:first_name]
+      # puts name
+    end
+  end
 
+    def find_name
+      contents = CSV.open "event_attendees.csv", headers: true, header_converters: :symbol
+      contents.collect.each do |row|
+      name = row[:first_name]
+      @attendees << name
       end
     end
 
+    def count
+     contents = CSV.open "event_attendees.csv", headers: true, header_converters: :symbol
+     contents.collect.each do |row|
+       name = row[:first_name]
+       @attendess << name
+       @attendees.count("John")
+     end
+   end
+
+#look up regex class
 
 
 
