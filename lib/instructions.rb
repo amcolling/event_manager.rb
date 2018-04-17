@@ -27,6 +27,8 @@ class Instructions
         (q)ueue (e)xport (h)tml\n
         and (q)ueue (f)ind"
         user_input == gets.chomp
+        elsif user_input == "load queue"
+        puts File.read "event_attendees.csv"
         elsif user_input == 'queue clear'
         puts 'The queue is now clear'
         elsif user_input == 'queue district'

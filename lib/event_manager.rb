@@ -40,7 +40,7 @@ class EventManager
     end
   end
 
-puts csv.find {|row| row['NAME'] == 'Tom'}
+
 
 
 
