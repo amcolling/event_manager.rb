@@ -8,17 +8,4 @@ class QueryTest < Minitest::Test
     q = Query.new
     assert_instance_of Query, q
   end
-  # 
-  # def test_find_name
-  #   q = Query.new
-  #   assert_equal "#{name}", q.find_name.to_s
-  # end
-
-
-
-
-
-
-
-
 end

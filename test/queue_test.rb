@@ -17,4 +17,19 @@ class QueueTest < Minitest::Test
     assert_equal [], q.empty
   end
 
+  def test_count
+    q = Queue.new
+    assert_equal 63, q.count
+  end
+
+  def test_queue_clear?
+    q = Queue.new
+    assert_equal true, q.empty?
+  end
+
+  def test_count_zero
+    q = Queue.new
+    assert_equal 0, q.count
+  end
+
 end

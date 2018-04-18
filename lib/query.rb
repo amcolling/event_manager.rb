@@ -10,42 +10,33 @@ class Query
 
 
   contents = CSV.open "event_attendees.csv"
-  binding.pry
+
 
   def convert_string_to_array
     lines = File.readlines "event_attendees.csv"
     lines.each do |line|
       columns = line.split (",")
-      # p columns
-    end
+      end
   end
 
-  def convert_header
+  def find_name
     contents = CSV.open "event_attendees.csv", headers: true, header_converters: :symbol
-    contents.each do |row|
-      name = row[:first_name]
-      # puts name
-    end
-  end
-
-    def find_name
-      contents = CSV.open "event_attendees.csv", headers: true, header_converters: :symbol
-      contents.collect.each do |row|
+    contents.collect.each do |row|
       name = row[:first_name]
       @attendees << name
-      end
     end
+  end
 
-    def count
-     contents = CSV.open "event_attendees.csv", headers: true, header_converters: :symbol
-     contents.collect.each do |row|
-       name = row[:first_name]
-       @attendess << name
-       @attendees.count("John")
-     end
-   end
+  def count
+    contents = CSV.open "event_attendees.csv", headers: true, header_converters: :symbol
+    contents.collect.each do |row|
+      name = row[:first_name]
+      @attendess << name
+      @attendees.count("John")
+    end
+  end
 
-#look up regex class
+
 
 
 
