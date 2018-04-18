@@ -34,7 +34,11 @@ class EventManagerTest < Minitest::Test
     assert_equal lines, em.find_first_name
   end
 
-end
+  def test_queue_search
+    em = EventManager.new("John")
+    lines = File.readlines "event_attendees.csv"
+    assert_equal 1, em.queue_search
+  end
 
 # A. Happy Path
 #
@@ -44,3 +48,4 @@ end
 # help should list the commands
 # help queue count should explain the queue count function
 # help queue print should explain the printing function
+end 

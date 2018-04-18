@@ -2,7 +2,7 @@ require 'pry'
 require 'csv'
 class Instructions
 
-  def initialize
+  def initializelin
   end
 
   # help queue count should explain the queue count function

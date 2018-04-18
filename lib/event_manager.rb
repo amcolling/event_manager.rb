@@ -32,6 +32,7 @@ class EventManager
   end
 
   def first_name(name)
+     
     lines = File.readlines "event_attendees.csv"
     lines.each do |line|
       columns = line.split (",")
@@ -39,4 +40,14 @@ class EventManager
       # p name
     end
   end
+
+  def queue_search
+    lines = File.readlines "event_attendees.csv"
+    lines.map do |line|
+      columns = line.split (",")
+      columns.count("Allison")
+
+    end
+  end
+
 end
