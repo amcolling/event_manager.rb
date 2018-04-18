@@ -36,6 +36,14 @@ class Query
     end
   end
 
+  def queue_search
+    lines = File.readlines "event_attendees.csv"
+    lines.map do |line|
+      columns = line.split (",")
+      @attendees << columns.count("Allison")
+    end
+  end
+
 
 
 
