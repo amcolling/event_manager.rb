@@ -14,7 +14,8 @@ class EventManagerTest < Minitest::Test
   # queue count should return 0
   def test_queue
     em = EventManager.new([])
-    assert_equal [], em.queue(name)
+    contents = File.read "event_attendees.csv"
+    assert_equal contents, em.queue(name)
   end
 
   def test_queue_count
@@ -52,6 +53,7 @@ class EventManagerTest < Minitest::Test
 
   def test_last_name
     em = EventManager.new("John")
-    assert_equal [], em.last_name(name)
+    contents = File.read "event_attendees.csv"
+    assert_equal contents, em.last_name(name)
   end
 end

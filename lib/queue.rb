@@ -8,7 +8,7 @@ class Queue
     @attendees = []
     @count = 0
   end
-
+  
   def empty
     @attendees
   end
