@@ -7,13 +7,11 @@ require "csv"
 class EventManager
 
   attr_reader :queue_count,
-              :name,
-              :queue
+              :attendees
 
   def initialize(count)
     @queue_count = 0
-    @name = name
-    @queue = []
+    @attendees = []
   end
 
   def reads_file_line_by_line
@@ -32,7 +30,6 @@ class EventManager
   end
 
   def first_name(name)
-
     lines = File.readlines "event_attendees.csv"
     lines.each do |line|
       columns = line.split (",")
