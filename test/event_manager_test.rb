@@ -54,12 +54,4 @@ class EventManagerTest < Minitest::Test
     em = EventManager.new("John")
     assert_equal [], em.last_name(name)
   end
-# A. Happy Path
-#
-# queue count should return 63
-# queue clear
-# queue count should return 0
-# help should list the commands
-# help queue count should explain the queue count function
-# help queue print should explain the printing function
 end
