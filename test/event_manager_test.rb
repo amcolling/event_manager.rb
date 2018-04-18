@@ -14,7 +14,7 @@ class EventManagerTest < Minitest::Test
   # queue count should return 0
   def test_queue
     em = EventManager.new([])
-    assert_equal [], em.queue
+    assert_equal [], em.queue(name)
   end
 
   def test_queue_count
@@ -31,15 +31,29 @@ class EventManagerTest < Minitest::Test
   def test_find_first_name
     em = EventManager.new("John")
     lines = File.readlines "event_attendees.csv"
-    assert_equal lines, em.find_first_name
+    assert_equal lines, em.first_name(name)
   end
 
   def test_queue_search
     em = EventManager.new("John")
     lines = File.readlines "event_attendees.csv"
-    assert_equal 1, em.queue_search
+    assert_equal [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], em.queue_search
   end
 
+  def test_queue_search_city
+    em = EventManager.new("John")
+    assert_equal [0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] , em.queue_search_city
+  end
+
+  def test_queue_search_state
+    em = EventManager.new("John")
+    assert_equal [0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], em.queue_search_state
+  end
+
+  def test_last_name
+    em = EventManager.new("John")
+    assert_equal [], em.last_name(name)
+  end
 # A. Happy Path
 #
 # queue count should return 63
@@ -48,4 +62,4 @@ class EventManagerTest < Minitest::Test
 # help should list the commands
 # help queue count should explain the queue count function
 # help queue print should explain the printing function
-end 
+end

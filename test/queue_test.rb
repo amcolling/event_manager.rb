@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-# require './lib/event_manager'
+require './lib/event_manager'
 require 'pry'
 require './lib/queue'
 

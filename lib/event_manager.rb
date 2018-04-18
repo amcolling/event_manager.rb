@@ -7,11 +7,14 @@ require "csv"
 class EventManager
 
   attr_reader :queue_count,
-              :attendees
+  :attendees
 
   def initialize(count)
     @queue_count = 0
     @attendees = []
+  end
+
+  def queue(name_1)
   end
 
   def reads_file_line_by_line
@@ -29,7 +32,7 @@ class EventManager
     end
   end
 
-  def first_name(name)
+  def first_name(name_1)
     lines = File.readlines "event_attendees.csv"
     lines.each do |line|
       columns = line.split (",")
@@ -43,6 +46,30 @@ class EventManager
     lines.map do |line|
       columns = line.split (",")
       columns.count("Allison")
+    end
+  end
+
+  def queue_search_city
+    lines = File.readlines "event_attendees.csv"
+    lines.map do |line|
+      columns = line.split (",")
+      columns.count("Washington")
+    end
+  end
+
+  def queue_search_state
+    lines = File.readlines "event_attendees.csv"
+    lines.map do |line|
+      columns = line.split (",")
+      columns.count("DC")
+    end
+  end
+
+  def last_name(name)
+    lines = File.readlines "event_attendees.csv"
+    lines.each do |line|
+      columns = line.split (",")
+      name = columns[3]
     end
   end
 
